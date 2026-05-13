@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Khushi's Website</title>
+
+  <style>
+
+    body{
+      margin:0;
+      padding:0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ffdde1, #ee9ca7);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      height:100vh;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:20px;
+      text-align:center;
+      width:380px;
+      box-shadow:0 4px 15px rgba(0,0,0,0.2);
+      position:relative;
+    }
+
+    h1{
+      color:#ff4081;
+    }
+
+    p{
+      color:#444;
+      font-size:16px;
+    }
+
+    button{
+      background:#ff4081;
+      color:white;
+      border:none;
+      padding:12px 20px;
+      border-radius:10px;
+      cursor:pointer;
+      font-size:16px;
+      margin-top:15px;
+      margin-right:10px;
+      transition:0.3s;
+    }
+
+    button:hover{
+      background:#e91e63;
+      transform:scale(1.05);
+    }
+
+    #codeBox{
+      margin-top:20px;
+      background:#111;
+      color:#00ff88;
+      text-align:left;
+      padding:15px;
+      border-radius:10px;
+      height:220px;
+      overflow:auto;
+      font-family: monospace;
+      white-space: pre-wrap;
+      display:none;
+    }
+
+    #welcomeBox{
+      display:none;
+      margin-top:20px;
+      animation:pop 0.6s ease;
+    }
+
+    #emoji{
+      font-size:80px;
+      animation:bounce 1s infinite;
+    }
+
+    #welcomeText{
+      font-size:24px;
+      color:#ff4081;
+      font-weight:bold;
+      margin-top:10px;
+    }
+
+    @keyframes bounce{
+      0%{transform:translateY(0);}
+      50%{transform:translateY(-10px);}
+      100%{transform:translateY(0);}
+    }
+
+    @keyframes pop{
+      from{
+        opacity:0;
+        transform:scale(0.5);
+      }
+
+      to{
+        opacity:1;
+        transform:scale(1);
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+
+    <h1>Hello World 🌸</h1>
+
+    <p>
+      Hi, I am Khushi.<br>
+      I am learning Web Development, GitHub, DevOps and Cloud ☁️
+    </p>
+
+    <button onclick="showMessage()">
+      Click Me
+    </button>
+
+    <button onclick="startAnimation()">
+      Show HTML Animation
+    </button>
+
+    <div id="welcomeBox">
+      <div id="emoji">😄</div>
+      <div id="welcomeText">
+        Welcome To My Website 🚀
+      </div>
+    </div>
+
+    <div id="codeBox"></div>
+
+  </div>
+
+  <script>
+
+    function showMessage(){
+
+      const box = document.getElementById("welcomeBox");
+
+      box.style.display = "block";
+    }
+
+    function startAnimation(){
+
+      const code = `<!DOCTYPE html>
+<html>
+<head>
+   <title>My Website</title>
+</head>
+
+<body>
+
+   <h1>Hello World</h1>
+   <p>I am learning HTML</p>
+
+</body>
+</html>`;
+
+      const codeBox = document.getElementById("codeBox");
+
+      codeBox.style.display = "block";
+      codeBox.innerHTML = "";
+
+      let i = 0;
+
+      const interval = setInterval(() => {
+
+        codeBox.innerHTML += code.charAt(i);
+
+        i++;
+
+        if(i >= code.length){
+          clearInterval(interval);
+        }
+
+      }, 40);
+    }
+
+  </script>
+
+</body>
+</html>
