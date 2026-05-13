@@ -22,7 +22,7 @@
       padding:30px;
       border-radius:20px;
       text-align:center;
-      width:320px;
+      width:380px;
       box-shadow:0 4px 15px rgba(0,0,0,0.2);
     }
 
@@ -44,10 +44,25 @@
       cursor:pointer;
       font-size:16px;
       margin-top:15px;
+      margin-right:10px;
     }
 
     button:hover{
       background:#e91e63;
+    }
+
+    #codeBox{
+      margin-top:20px;
+      background:#111;
+      color:#00ff88;
+      text-align:left;
+      padding:15px;
+      border-radius:10px;
+      height:220px;
+      overflow:auto;
+      font-family: monospace;
+      white-space: pre-wrap;
+      display:none;
     }
   </style>
 </head>
@@ -65,12 +80,56 @@
     <button onclick="showMessage()">
       Click Me
     </button>
+
+    <button onclick="startAnimation()">
+      Show HTML Animation
+    </button>
+
+    <div id="codeBox"></div>
   </div>
 
   <script>
+
     function showMessage(){
       alert("Welcome to my first website 🚀");
     }
+
+    function startAnimation(){
+
+      const code = `<!DOCTYPE html>
+<html>
+<head>
+   <title>My Website</title>
+</head>
+
+<body>
+
+   <h1>Hello World</h1>
+   <p>I am learning HTML</p>
+
+</body>
+</html>`;
+
+      const codeBox = document.getElementById("codeBox");
+
+      codeBox.style.display = "block";
+      codeBox.innerHTML = "";
+
+      let i = 0;
+
+      const interval = setInterval(() => {
+
+        codeBox.innerHTML += code.charAt(i);
+
+        i++;
+
+        if(i >= code.length){
+          clearInterval(interval);
+        }
+
+      }, 40);
+    }
+
   </script>
 
 </body>
